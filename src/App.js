@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
-import logo from "./assets/logo.svg"
 import { BsCheck2 } from "react-icons/bs"
 import text_bg from "./assets/text.png"
 import thumbnail from './assets/thumbnail.png'
 import arrow_down from "./assets/arrow_down.svg"
 import { IoChevronDown } from "react-icons/io5";
+import Header from './components/Header';
+import { Footer } from './components/Footer';
 function App() {
   const [selectedOption, setSelectedOption] = useState('E-Commerce');
   const [selectRadio, setSelectRadio] = useState("Home")
@@ -21,20 +22,13 @@ function App() {
   };
   return (
     <div className="App">
-    <div className='flex flex-row justify-between items-center pl-[160px] pr-[160px] pt-4 pb-4 bg-white'>
-      <img src={logo} alt='logo' />
-      <div className='flex flex-row items-center'>
-
-      <h3 className='font-normal text-[16px] mr-1'>Sandeep Sharma</h3>
-      <IoChevronDown size={"1.2rem"}/>
-      </div>
-    </div>
+    <Header />
     <div className='hero_bg '>
     <div className='relative w-full h-full top-11 flex flex-col justify-center items-center'>
-    <h2 className='playfair_font'>Choose Your Favorite Category</h2>
-    <p className='text-white text-[21px] opacity-60 pt-[11px] pb-[55px]'>Website design, UX/UI kits, infographics, logos and scene generator</p>
+    <h2 className='playfair_font text-center'>Choose Your Favorite Category</h2>
+    <p className='text-white text-[21px] opacity-60 pt-[11px] pb-[55px] text-center'>Website design, UX/UI kits, infographics, logos and scene generator</p>
     <div className='flex flex-row items-center'>
-    <select className='bg-[#474747] text-white p-[16px] rounded-xl w-[900px] border-2 border-[#FFDC7F]' value={selectedOption} onChange={handleOptionChange}>
+    <select className='bg-[#474747] text-white p-[16px] rounded-xl lg:w-[900px] w-[400px] md:w-[700px] border-2 border-[#FFDC7F]' value={selectedOption} onChange={handleOptionChange}>
         {options.map((option, index) => (
           <option className='text-[20px]' key={index} value={option}>
             {option}
@@ -49,10 +43,10 @@ function App() {
     <div className='pink_bg'>
       <div className='flex w-full h-full flex-col justify-center items-center'>
         <p className='text-[#402F00] text-[21px]'>Select Your Creative Web Pages Design</p>
-        <div className='mt-[40px] mb-[40px] flex flex-row items-center'>
+        <div className='mt-[40px] mb-[35px] flex flex-row flex-wrap items-center justify-center'>
         {["Home", "About Us", "Service", "Case Study", "Blog", "Career", "Contact Us"].map((item, key) => {
           let lowerItem = item.toLowerCase()
-          return <div className='mr-5' key={key}><input
+          return <div className='mr-5 mb-5' key={key}><input
             type="radio"
             id={lowerItem}
             name={item}
@@ -78,9 +72,7 @@ function App() {
       <div className='bg-container h-fit pt-10'>
           <img src={thumbnail} alt='template' className='h-fit w-full' />
       </div>
-      <footer className='bg-white'>
-          <p className='text-[14px] w-fit ml-auto mr-auto pt-[14px] pb-[14px]'>Copyright © 2024 Design Kit</p>
-      </footer>
+    <Footer />
     </div>
 
     </div>
